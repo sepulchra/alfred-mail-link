@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.sepulchra.alfred.maillink</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>AFD5B398-FDED-4EF8-8AF2-CC64FBA51F2D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B1A24C5C-1F00-4555-91E5-01544463D78D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B1A24C5C-1F00-4555-91E5-01544463D78D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CB91397B-B096-4C6C-A80E-6799AE9E6800</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>CDA2A6D0-E49E-4829-86F6-48A938809C23</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B1A24C5C-1F00-4555-91E5-01544463D78D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F29660CA-2D7A-4087-A2BB-F53671911EE8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B1A24C5C-1F00-4555-91E5-01544463D78D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Michael Raphael</string>
+	<key>description</key>
+	<string>Create link to selected message in Apple Mail</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Mail Link</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>tell application "Mail"		set _msg to item 1 of (get selection)		set _messageURL to "message://%3c" &amp; _msg's message id &amp; "%3e"		set _msgSubject to subject of _msg		set _from to sender of _msg		set _name to extract name from _from
+		set theLink to ("[" &amp; _msgSubject &amp; "](" &amp; _messageURL &amp; ")" &amp; " from " &amp; _name as string)
+		set the clipboard to theLink	return theLinkend tell</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B1A24C5C-1F00-4555-91E5-01544463D78D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>CB91397B-B096-4C6C-A80E-6799AE9E6800</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>{var:mlink_keyword}</string>
+				<key>subtext</key>
+				<string>Create link to selected message in Apple Mail</string>
+				<key>text</key>
+				<string>Mail Link</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>CDA2A6D0-E49E-4829-86F6-48A938809C23</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>keyword</key>
+				<string>elink</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.snippet</string>
+			<key>uid</key>
+			<string>AFD5B398-FDED-4EF8-8AF2-CC64FBA51F2D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>F29660CA-2D7A-4087-A2BB-F53671911EE8</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Usage
+
+Use the keyword `elink` to generate a tidy markdown link to your currently selected message in Apple Mail. You can also configure a Hotkey or Snippet.
+
+![Mail Link](/images/about/elink.png)
+
+
+[Hello, is it me your are looking for?](message://xxxxxxxxxxxxx@google.com%3e) from lionel@email.com
+
+ 
+
+This is handy for adding message to lists and task managers where mail needs to be tackled at a later date.
+
+Credit for the the applescript goes to John Voorhees and this article from [Macstories](https://www.macstories.net/stories/generating-markdown-links-to-mail-messages-with-shortcuts-and-applescript/). As well as [Daring Fireball](https://daringfireball.net/2007/12/message_urls_leopard_mail) from 2007. This is just an adaptation for Alfred users.</string>
+	<key>uidata</key>
+	<dict>
+		<key>AFD5B398-FDED-4EF8-8AF2-CC64FBA51F2D</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>155</real>
+		</dict>
+		<key>B1A24C5C-1F00-4555-91E5-01544463D78D</key>
+		<dict>
+			<key>xpos</key>
+			<real>270</real>
+			<key>ypos</key>
+			<real>15</real>
+		</dict>
+		<key>CB91397B-B096-4C6C-A80E-6799AE9E6800</key>
+		<dict>
+			<key>xpos</key>
+			<real>490</real>
+			<key>ypos</key>
+			<real>15</real>
+		</dict>
+		<key>CDA2A6D0-E49E-4829-86F6-48A938809C23</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>15</real>
+		</dict>
+		<key>F29660CA-2D7A-4087-A2BB-F53671911EE8</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>300</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>elink</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Mail Link Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>mlink_keyword</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<string></string>
+	<key>webaddress</key>
+	<string>https://sepulchra.com</string>
+</dict>
+</plist>
