@@ -3,6 +3,7 @@
 Use the keyword `elink` to generate a tidy markdown link to your currently selected message in Apple Mail. You can also configure a Hotkey or Snippet.
 
 
+<img width="746" alt="elink" src="https://user-images.githubusercontent.com/122695153/232148864-8af766b4-a1a2-4884-9787-fe6a33e73ab7.png">
 
 
 [Hello, is it me your are looking for?](message://xxxxxxxxxxxxx@google.com%3e) from lionel@email.com
